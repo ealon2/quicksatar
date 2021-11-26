@@ -15,6 +15,13 @@ public class Personaje extends PersistenceObject {
   @JoinColumn(name="item_id")
   private List<Item> items;
 
+  @ManyToMany
+  @OrderColumn (name="orden_visitas")
+  private List <Ubicacion> ubicacionesVisitadas;
+
+  @OneToOne
+  private Arma arma;
+
   @Enumerated
   private TipoPersonaje tipo;
 
