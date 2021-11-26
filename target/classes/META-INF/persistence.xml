@@ -7,6 +7,15 @@
 
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>domain.Accesorio</class>
+        <class>domain.Arma</class>
+        <class>domain.BolsaDeMonedas</class>
+        <class>domain.Coordenadas</class>
+        <class>domain.Item</class>
+        <class>domain.Personaje</class>
+        <class>domain.Regalo</class>
+        <class>domain.TipoPersonaje</class>
+        <class>domain.Ubicacion</class>
 
         <properties>
             <property name="hibernate.archive.autodetection" value="class"/>
