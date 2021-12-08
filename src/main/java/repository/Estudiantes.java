@@ -37,4 +37,8 @@ public class Estudiantes {
         .forEach(map -> map.getValue().notificar(Accion.BAJA,estudiante));
   }
 
+  public long cantidadInscriptos(Grupo grupo){
+    return listado.entrySet().stream().filter(map->map.getKey().equals(grupo)).count();
+  }
+
 }

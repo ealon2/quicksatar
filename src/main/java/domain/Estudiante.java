@@ -1,6 +1,6 @@
 package domain;
 
-public class Estudiante implements Notificacion {
+public class Estudiante implements Notificacion,Usuario {
 
   private final Medio medio;
   private final String nombre;
@@ -12,14 +12,6 @@ public class Estudiante implements Notificacion {
 
   public String getNombre() {
     return nombre;
-  }
-
-  public void inscribirme(Grupo grupo) {
-    grupo.inscripcion(this);
-  }
-
-  public void desinscribirme(Grupo grupo) {
-    grupo.desinscripcion(this);
   }
 
   public void notificar (Accion accion, Estudiante estudiante){

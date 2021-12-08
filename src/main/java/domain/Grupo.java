@@ -2,8 +2,6 @@ package domain;
 
 import repository.Estudiantes;
 
-import java.util.EmptyStackException;
-
 /**
  * Req 1. Como docente, deseo poder crear N grupos de trabajo de un tamaño ideal M, vacíos, para permitir
  * la inscripción de estudiantes a cada grupo
@@ -14,24 +12,32 @@ import java.util.EmptyStackException;
  */
 public class Grupo {
 
-  private int tamanno;
+  private final String nombre;
+  private final int tamanno;
+  private Estado estado;
 
   /**
    *
-   * @param tamanno limite superior de estudiantes que puede admitir el grupo.
+   * @param tamanno tamaño ideal de estudiantes dentro del grupo.
+   * @param nombre nombre del grupo.
    */
-  Grupo (int tamanno){
-
+  Grupo (int tamanno, String nombre){
+    this.tamanno = tamanno;
+    this.nombre = nombre;
+    this.estado = Estado.ABIERTO;
   }
 
-  public void inscripcion (Estudiante estudiante){
-    estudiante.inscribirme(this);
-    Estudiantes.getInstancia().alta(this,estudiante);
+  public void inscripcion (Estudiante estudiante) throws RuntimeException{
+    if (Estudiantes.getInstancia().cantidadInscriptos(this) <= tamanno) {
+      Estudiantes.getInstancia().alta(this, estudiante);
+    } else throw new RuntimeException("No hay cupo");
   }
 
   public void desinscripcion (Estudiante estudiante){
-    estudiante.desinscribirme(this);
     Estudiantes.getInstancia().baja(this,estudiante);
   }
 
+  public void cerrarGrupo() {
+    estado.CERRADO();
+  }
 }
