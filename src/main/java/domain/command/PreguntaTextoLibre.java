@@ -1,28 +1,16 @@
 package domain.command;
 
-import domain.Consulta;
 import domain.Pregunta;
 
-import java.util.List;
-
 public class PreguntaTextoLibre implements Pregunta {
-  @Override
-  public void asociarConsulta(Consulta consulta) {
 
+  @Override
+  public boolean esObligatoria() {
+    return false;
   }
 
   @Override
-  public List<Consulta> obtenerListadoDeConsultasAsociadas() {
-    return null;
-  }
-
-  @Override
-  public void quitarConsulta(Consulta consulta) {
-
-  }
-
-  @Override
-  public void respuesta(Consulta consulta, String respuesta) {
+  public void respuesta(String respuesta) {
 
   }
 }

@@ -7,29 +7,30 @@ public class Consulta {
   private Configuracion configuracion;
   private Tipo tipo;
   private List<Usuarios> consultados;
-  private String link;
+  private Link link;
 
-  Consulta (Configuracion configuracion, Tipo tipo){
+  Consulta (Configuracion configuracion, Tipo tipo, Link link){
     this.configuracion = configuracion;
     configuracion.asociarConsulta(this);
     this.tipo = tipo;
+    this.link = link;
   }
 
   public void iniciarConsulta(){
-    configuracion.start();
+    configuracion.iniciar();
   }
 
   public void pausarConsulta(){
-    configuracion.pause();
+    configuracion.pausar();
   }
 
-  public void finalizar(){
-    configuracion.stop();
+  public void finalizarConsulta(){
+    configuracion.finalizar();
     notificarEncuestaCerrada();
   }
 
   public String obtenerLink(){
-    return link;
+    return link.obtenerURL();
   }
 
   public Tipo obtenerTipo(){
@@ -37,7 +38,9 @@ public class Consulta {
   }
 
   public void notificarEncuestaCerrada(){
-    consultados.stream().forEach(usuarios -> usuarios.notificar("Encuesta Cerrada"));
+    consultados.stream().forEach(
+        usuarios -> usuarios.notificar("Encuesta Cerrada")
+    );
   }
 
 }
