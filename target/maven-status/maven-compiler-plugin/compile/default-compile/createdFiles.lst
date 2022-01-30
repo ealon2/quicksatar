@@ -1,0 +1,10 @@
+domain/Sponsor.class
+persistence/PersistenceObject.class
+domain/Cargo.class
+domain/Premio.class
+domain/Jurado.class
+domain/PremioBuilder.class
+domain/Edicion.class
+domain/Categoria.class
+Application.class
+server/Router.class

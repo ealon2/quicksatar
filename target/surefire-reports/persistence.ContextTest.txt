@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: persistence.ContextTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.045 s - in persistence.ContextTest
